@@ -9,7 +9,7 @@ Manushi's work tuned version
 - `batch_size`: controls how many data samples to train on each iteration
 - `iters`: controls how many iterations to train
 
-**Secondly**, you will need to install [docker]<https://docs.docker.com/engine/install/ubuntu/> on your machine, which I highly recommend using the Ubuntu system. 
+**Secondly**, you will need to install [docker](https://docs.docker.com/engine/install/ubuntu/) on your machine, which I highly recommend using the Ubuntu system. 
 And if you are using Nvidia GPU, which is also a must, please configure the GPU following this [tutorial]<https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html>
 
 ```bash
