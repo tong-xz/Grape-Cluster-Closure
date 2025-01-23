@@ -9,12 +9,12 @@ Manushi's work tuned version
 - `batch_size`: controls how many data samples to train on each iteration
 - `iters`: controls how many iterations to train
 
-**Secondly**,
+**Secondly**, you will need to install [docker]<https://docs.docker.com/engine/install/ubuntu/> on your machine, which I highly recommend using the Ubuntu system. 
 
 
-
-
-
+```bash
+docker build -t grape .
+docker run --gpus all -it grape 
 ## Training
 
 ```bash
