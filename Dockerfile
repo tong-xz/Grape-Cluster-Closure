@@ -37,6 +37,8 @@ COPY environment.yml /app/environment.yml
 
 RUN conda init
 
+
+
 # Create the Conda environment
 RUN conda env create -f environment.yml && conda clean -a
 
@@ -49,6 +51,9 @@ ENV PATH=/opt/conda/envs/manushi/bin:$PATH
 
 # Copy the project files
 COPY . /app/
+
+# Install PaddleSeg
+RUN cd PaddleSeg && pip install -e .
 
 # Set the default command to run the script
 CMD ["bash"]

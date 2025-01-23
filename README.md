@@ -15,14 +15,19 @@ Manushi's work tuned version
 ```bash
 docker build -t grape .
 docker run --gpus all -it grape 
+```
 ## Training
+
 
 ```bash
 cd PaddleSeg
 python tools/train.py --config <config file absoulte path>
 ```
 
-**For example:** `python3 ./tools/train.py --config /home/xz/Dev/Grape-Cluster-Closure/psp2.yml`
+**Docker:**
+```bash
+python3 PaddleSeg/tools/train.py --config psp-docker.yml 
+```
 
 ## Evaluation
 
@@ -30,8 +35,10 @@ python tools/train.py --config <config file absoulte path>
 cd PaddleSeg
 python tools/val.py --config <config file absoulte path> --model_path <model path>
 ```
-**For example:** `python3 tools/val.py --config /home/xz/Dev/Grape-Cluster-Closure/psp2.yml --model_path /home/xz/Dev/Grape-Cluster-Closure/PaddleSeg/output/iter_1000/model.pdparams`
-
+**Docker:** 
+```bash
+python3 PaddleSeg/tools/val.py --config psp-docker.yml --model_path PaddleSeg/output/<iter folder>/model.pdparams
+```
 
 The model evaluation result will be shown in the format below:
 <img src="assets/eval_result.png" alt="alt text" width="75%">
@@ -44,4 +51,7 @@ cd <root path>
 python inference.py --config <config file absoulte path> --model_path <model path> --image_path <img directory> --save_dir <save directory>
 ```
 
-**For example:** `python ./tools/inference.py --config /home/xz/Dev/Grape-Cluster-Closure/psp2.yml --model_path /home/xz/Dev/Grape-Cluster-Closure/PaddleSeg/output/iter_1000/model.pdparams --image_path data/example.jpg --save_dir results`
+**Docker:** 
+```bash
+python3 PaddleSeg/tools/inference.py --config psp-docker.yml --model_path PaddleSeg/output/<iter folder>/model.pdparams --image_path data/example.jpg --save_dir results
+```

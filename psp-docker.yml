@@ -1,0 +1,35 @@
+
+# docker training config
+_base_: "./PaddleSeg/configs/pspnet/pspnet_resnet50_os8_cityscapes_1024x512_80k.yml"
+
+
+batch_size: 8
+iters: 500
+
+
+train_dataset:
+  dataset_root: /app/dataset
+  train_path: /app/dataset/train.txt
+  type: Dataset
+  num_classes: 2
+  mode: train
+  transforms:
+
+    - type: Resize
+      target_size: [512, 512]
+    - type: RandomHorizontalFlip
+    - type: RandomVerticalFlip
+    - type: Normalize
+
+
+val_dataset:
+  type: Dataset
+  dataset_root: /app/dataset
+  val_path: /app/dataset/val.txt
+  num_classes: 2
+  mode: val
+  transforms:
+
+    - type: Resize
+      target_size: [512, 512]
+    - type: Normalize
